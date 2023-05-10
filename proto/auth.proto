@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package pb;
+
+option go_package = "github.com/quocdaitrn/cp-auth/proto/pb";
+
+message IntrospectRequest {
+  string access_token = 1;
+}
+
+message IntrospectResponse {
+  string tid = 1;
+  string sub = 2;
+}
+
+service AuthService {
+    rpc IntrospectToken(IntrospectRequest) returns (IntrospectResponse);
+}
